@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Etudiant;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -49,20 +48,12 @@ class CustomAuthController extends Controller
             'password' => 'required|min:6|max:20'
         ]);
 
+
+
         $user = new User;
         $user->fill($request->all());
         $user->password = Hash::make($request->password);
         $user->save();
-
-        $newEtudiant = Etudiant::create([
-            'nom'=>$request->name,
-            'adresse'=>$request->adresse,
-            'phone'=>$request->phone,
-            'email'=>$request->email,
-            'dateNaissance'=>$request->dateNaissance,
-            'id_ville'=>$request->id_ville
-        ]);
-
 
         $to_name = $request->name;
         $to_email = $request->email;
