@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Etudiant;
 use App\Models\User;
+use App\Models\Ville;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
@@ -31,7 +33,8 @@ class CustomAuthController extends Controller
     public function create()
     {
         //
-        return view('auth.create');
+        $villes = Ville::all();
+        return view('auth.create', ['villes'=>$villes]);
     }
 
     /**
@@ -43,17 +46,24 @@ class CustomAuthController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|min:2',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6|max:20'
         ]);
-
-
 
         $user = new User;
         $user->fill($request->all());
         $user->password = Hash::make($request->password);
         $user->save();
+
+        $newEtudiant = Etudiant::create([
+            'nom'=>$request->name,
+            'adresse'=>$request->adresse,
+            'phone'=>$request->phone,
+            'email'=>$request->email,
+            'dateNaissance'=>$request->dateNaissance,
+            'id_ville'=>$request->id_ville
+        ]);
 
         $to_name = $request->name;
         $to_email = $request->email;
@@ -139,9 +149,10 @@ class CustomAuthController extends Controller
     }
 
     public function dashboard(){
-
+        $name = "Guest";
         if(Auth::check()){
-            return view('dashboard');
+            $name = Auth::user()->name;
+            return view('dashboard', ['name' =>$name]);
         }
         return redirect(route('login'))->withErrors('Vous n\'êtes pas authorisé à accéder');
     }

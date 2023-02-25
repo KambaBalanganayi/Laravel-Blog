@@ -6,7 +6,7 @@
                 <h1 class="text-center"></h1>
                 <div class=" d-flex justify-content-center">
                     <div class="text-center px-5 w-50">
-                        <h1 class="text-center">Connectez-Vous!</h1>
+                        <h1 class="text-center mb-3">Get Logged!</h1>
                         <div class="card">
                             <h3 class="card-header text-center">
                             Login
@@ -27,18 +27,30 @@
                             @endforeach
                             </ul>
                             @endif
-                        <form action="{{route('login.authentication')}}" method ="post">
-                            <div class="form-group">
+                        <form action="{{route('login')}}" method ="post">
+                            @csrf
+                            <div class="form-group mb-3">
                                 <label for="exampleInputEmail1">Email address</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                                <input type="email" placeholder="Email" class="form-control" name="email" value="{{ old('email')}}">
+                                @if($errors->has('email'))
+                                    <div class="text-danger mt-2">
+                                        {{ $errors->first('email')}}
+                                    </div>
+                                @endif
                                 <small id="emailHelp" class="form-text text-muted"></small>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Password</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                <input type="password" placeholder="Password" class="form-control" name="password">
+                                @if($errors->has('password'))
+                                    <div class="text-danger mt-2">
+                                        {{ $errors->first('password')}}
+                                    </div>
+                                @endif
                             </div>
-                            <button type="submit" class="btn btn-primary mt-4">Submit</button>
+                            <button type="submit" class="btn btn-primary mt-4 mb-4">Submit</button>
                         </form>
+                        <a href="{{route('forgot.pass')}}">Mot de passe oublié</a>
                     </div>
                 </div>
 
