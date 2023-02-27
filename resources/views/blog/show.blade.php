@@ -1,6 +1,7 @@
 @extends('layouts.layout')
 @section('title', 'Blog Post Details')
 @section('content')
+<pre>{{ dd($blogPost) }}</pre>
 <div class="container">
     <div class="row">
         <div class="col-12 pt-2">
@@ -16,7 +17,7 @@
         </div>
     </div>
     <div class="row text-center mb-2">
-
+        @if(Auth::check() && Auth::user()->id == $blogPost->user_id)
         <div class="col-4">
             <a href="{{route('blog.edit', $blogPost->id)}}" class="btn btn-success">Update</a>
         </div>
@@ -26,6 +27,7 @@
             Delete
             </button>           
         </div>
+        @endif
     </div>
 </div>
 

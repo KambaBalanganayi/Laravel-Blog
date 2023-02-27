@@ -62,7 +62,8 @@ class CustomAuthController extends Controller
             'phone'=>$request->phone,
             'email'=>$request->email,
             'dateNaissance'=>$request->dateNaissance,
-            'id_ville'=>$request->id_ville
+            'id_ville'=>$request->id_ville,
+            'id_user'=>$user->id
         ]);
 
         $to_name = $request->name;

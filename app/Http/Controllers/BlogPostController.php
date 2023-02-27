@@ -94,7 +94,8 @@ class BlogPostController extends Controller
         //
         $blogPost->update([
             'title' => $request->title,
-            'body' => $request->body
+            'body' => $request->body,
+            'categorys_id'=>$request->categorys_id
         ]);
 
         return redirect(route('blog.show', $blogPost->id));

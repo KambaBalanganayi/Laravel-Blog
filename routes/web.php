@@ -3,6 +3,7 @@
 use App\Http\Controllers\BlogPostController;
 use App\Http\Controllers\EtudiantController;
 use App\Http\Controllers\CustomAuthController;
+use App\Http\Controllers\FileUploadController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,7 +41,17 @@ Route::delete('blog-edit/{blogPost}', [BlogPostController::class, 'destroy'])->m
 
 
 
-Route::get('registration', [CustomAuthController::class, 'create'])->name('user.create');
+Route::get('file', [FileUploadController::class, 'index'])->name('file.index')->middleware('auth');
+Route::get('file/{fileUpload}', [FileUploadController::class, 'show'])->name('file.show')->middleware('auth');
+Route::get('file-create', [FileUploadController::class, 'create'])->name('file.create')->middleware('auth');
+Route::post('file-create', [FileUploadController::class, 'store'])->name('file.store')->middleware('auth');
+Route::delete('file-edit/{fileUpload}', [FileUploadController::class, 'destroy'])->middleware('auth');
+
+
+
+
+
+Route::get('registration', [CustomAuthController::class, 'create'])->name('auth.create');
 Route::post('registration', [CustomAuthController::class, 'store'])->name('user.store');
 
 Route::get('login', [CustomAuthController::class, 'index'])->name('login');

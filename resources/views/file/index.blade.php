@@ -1,5 +1,5 @@
 @extends('layouts.layout')
-@section('title', 'Blog List')
+@section('title', 'File List')
 @section('content')
 <div class="container">
         <div class="row">
@@ -15,8 +15,8 @@
                         </p>
                     </div>
                     <div class="col-md-4">
-                        <a href="{{ route('blog.create')}}" class="btn btn-outline-primary">
-                            @lang('lang.add_post')
+                        <a href="{{ route('file.create')}}" class="btn btn-outline-primary">
+                            @lang('lang.add_file')
                         </a>
                     </div>
                 </div>
@@ -26,16 +26,16 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            List of blog posts
+                            List of files uploaded
                         </div>
                         <div class="card-body">
                             <ul>
-                                @forelse($blogs as $blog)
-                                        <li><a href="{{ route('blog.show', $blog->id)}}">{{ $blog->title }}</a> 
-                                        <br><strong>Category:</strong> @isset($blog->blogHasCategory->category) {{ $blog->blogHasCategory->category }} @endisset</p></li>
+                                @forelse($files as $file)
+                                        <li><a href="{{ route('file.show', $file->id)}}">{{ $file->title }}</a> 
+                                        <br></li>
                                         <br>
                                         @empty
-                                        <li class="text-danger">No blog articles available</li>
+                                        <li class="text-danger">No files available</li>
                                 @endforelse
                             </ul>
                         </div>
