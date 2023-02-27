@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 25, 2023 at 09:38 AM
+-- Generation Time: Feb 27, 2023 at 10:11 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -42,7 +42,8 @@ CREATE TABLE `blog_posts` (
 --
 
 INSERT INTO `blog_posts` (`id`, `title`, `body`, `user_id`, `categorys_id`, `created_at`, `updated_at`) VALUES
-(25, 'This is my first post - Wahouuu!', 'Well the content is kind of in the title, check it out!', 1, 2, '2023-02-25 13:29:22', '2023-02-25 13:29:22');
+(25, 'This is my first post - Wahouuu!!', 'Well the content is kind of in the title, check it out!!!--!!!', 1, 2, '2023-02-25 13:29:22', '2023-02-27 11:53:40'),
+(26, 'This is a post by Marcus - He\'s not grey', 'Being grey is not a bad thing, all you need is a little perspective', 2, 1, '2023-02-27 12:22:44', '2023-02-27 12:22:44');
 
 -- --------------------------------------------------------
 
@@ -138,7 +139,9 @@ INSERT INTO `etudiants` (`id`, `id_user`, `nom`, `adresse`, `phone`, `email`, `d
 (48, NULL, 'Herbert Koss', '28718 Jacobs Mews Suite 824', '913-746-2241', 'evangeline.kulas@example.org', '1991-04-24', 64, '2023-02-04 06:03:11', '2023-02-04 06:03:11'),
 (49, NULL, 'Kevon Borer', '37349 Eunice Fall Apt. 712', '603-770-7934', 'harber.al@example.com', '2021-09-27', 71, '2023-02-04 06:03:11', '2023-02-04 06:03:11'),
 (50, NULL, 'Michele Kuphal', '719 Sawayn Course', '1-484-373-1235', 'kariane.stehr@example.net', '2019-06-28', 72, '2023-02-04 06:03:11', '2023-02-04 06:03:11'),
-(105, NULL, 'Kamba', '12345 Test Street', '456-454-4564', 'test@test.com', '1900-01-01', 73, '2023-02-25 12:39:25', '2023-02-25 12:39:25');
+(105, 1, 'Kamba', '12345 Test Street', '456-454-4564', 'test@test.com', '1900-01-01', 73, '2023-02-25 12:39:25', '2023-02-25 12:39:25'),
+(106, NULL, 'Marcus', '4545 Fake Street South', '555-555-5555', 'testy@testo.com', '1976-06-07', 67, '2023-02-27 12:16:56', '2023-02-27 12:16:56'),
+(107, NULL, 'Farcus', '4545 Fake Street South', '555-555-5555', 'fake@testo.com', '1976-06-08', 61, '2023-02-27 12:19:20', '2023-02-27 12:19:20');
 
 -- --------------------------------------------------------
 
@@ -155,6 +158,28 @@ CREATE TABLE `failed_jobs` (
   `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `file_uploads`
+--
+
+CREATE TABLE `file_uploads` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `title` varchar(45) NOT NULL,
+  `path` varchar(200) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `file_uploads`
+--
+
+INSERT INTO `file_uploads` (`id`, `user_id`, `title`, `path`, `created_at`, `updated_at`) VALUES
+(1, 1, 'super CV', 'public/rOWPTPQTPI0zw20gA9viPDU4dXGKyek357PpQTvS.pdf', '2023-02-27 13:40:44', '2023-02-27 13:40:44');
 
 -- --------------------------------------------------------
 
@@ -232,7 +257,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Kamba', 'test@test.com', NULL, '$2y$10$5s/f2XI9vJGUYHHWgQY53OheVPczphkB.Q/QLieY28OXV9XMYCx.q', NULL, '2023-02-25 12:39:25', '2023-02-25 12:39:25');
+(1, 'Kamba', 'test@test.com', NULL, '$2y$10$5s/f2XI9vJGUYHHWgQY53OheVPczphkB.Q/QLieY28OXV9XMYCx.q', NULL, '2023-02-25 12:39:25', '2023-02-25 12:39:25'),
+(2, 'Marcus', 'testy@testo.com', NULL, '$2y$10$kdw98K1Wt3t2KNK7JEdXYOt7GxK3h9s/qNkbHXefuFgdmk.JQFJzW', NULL, '2023-02-27 12:16:56', '2023-02-27 12:16:56'),
+(3, 'Farcus', 'fake@testo.com', NULL, '$2y$10$Gc/AHe86pEIGNARrnglVaut9wizIUfRTQSiJBMqDMhTdZxOoMDING', NULL, '2023-02-27 12:19:20', '2023-02-27 12:19:20');
 
 -- --------------------------------------------------------
 
@@ -302,6 +329,13 @@ ALTER TABLE `failed_jobs`
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
 
 --
+-- Indexes for table `file_uploads`
+--
+ALTER TABLE `file_uploads`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
 -- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
@@ -342,7 +376,7 @@ ALTER TABLE `villes`
 -- AUTO_INCREMENT for table `blog_posts`
 --
 ALTER TABLE `blog_posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `categorys`
@@ -354,13 +388,19 @@ ALTER TABLE `categorys`
 -- AUTO_INCREMENT for table `etudiants`
 --
 ALTER TABLE `etudiants`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `file_uploads`
+--
+ALTER TABLE `file_uploads`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -378,7 +418,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
@@ -397,6 +437,12 @@ ALTER TABLE `blog_posts`
 ALTER TABLE `etudiants`
   ADD CONSTRAINT `id_user` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `id_ville` FOREIGN KEY (`id_ville`) REFERENCES `villes` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `file_uploads`
+--
+ALTER TABLE `file_uploads`
+  ADD CONSTRAINT `file_uploads_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
