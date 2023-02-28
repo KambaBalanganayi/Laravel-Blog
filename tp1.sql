@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 27, 2023 at 10:11 AM
+-- Generation Time: Feb 28, 2023 at 06:52 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -179,7 +179,7 @@ CREATE TABLE `file_uploads` (
 --
 
 INSERT INTO `file_uploads` (`id`, `user_id`, `title`, `path`, `created_at`, `updated_at`) VALUES
-(1, 1, 'super CV', 'public/rOWPTPQTPI0zw20gA9viPDU4dXGKyek357PpQTvS.pdf', '2023-02-27 13:40:44', '2023-02-27 13:40:44');
+(2, 1, 'Bla bla bla', 'public/IOfVxoqQrmGnDFXxjw2ypjIU0TvkiqPPz418oTMC.pdf', '2023-02-28 10:33:18', '2023-02-28 10:33:18');
 
 -- --------------------------------------------------------
 
@@ -400,7 +400,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `file_uploads`
 --
 ALTER TABLE `file_uploads`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `migrations`
