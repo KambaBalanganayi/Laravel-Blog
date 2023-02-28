@@ -1,7 +1,8 @@
 @extends('layouts.layout')
 @section('title', 'Blog Post Details')
 @section('content')
-<pre>{{ dd($blogPost) }}</pre>
+
+
 <div class="container">
     <div class="row">
         <div class="col-12 pt-2">

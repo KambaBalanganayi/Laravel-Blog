@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 @section('title', 'File Upload Details')
 @section('content')
-<pre>{{ dd($files) }}</pre>
+
 
 <div class="container">
     <div class="row">
@@ -26,4 +26,31 @@
         @endif
     </div>
 </div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Delete a file</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to erase this file?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <form action="{{ route('delete', $files->id)}}" method="post">
+                @csrf
+                @method('delete')
+            <input type="submit" class="btn btn-danger" value="Effacer">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 @endsection

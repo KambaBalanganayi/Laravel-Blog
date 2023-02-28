@@ -2,12 +2,12 @@
 @section('title', 'Create')
 @section('content')
 <!-- Section-->
-<section class="py-5">
+<section class="py-5 mb-5">
                 <h1 class="text-center"></h1>
                 <div class=" d-flex justify-content-center">
                     <div class="text-center px-5 w-50">
                         <h1 class="text-center mb-3">Create an Account</h1>
-                        <div class="card">
+                        <div class="card mb-5">
                             <h3 class="card-header text-center">
                             Sign Up!
                             </h3>

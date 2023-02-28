@@ -52,7 +52,8 @@ class FileUploadController extends Controller
 
         $fileUpload = FileUpload::create([
             'title'=>$request->title,
-            'path'=>$path
+            'path'=>$path,
+            'user_id'=> Auth::user()->id
         ]);
 
 
@@ -100,18 +101,18 @@ class FileUploadController extends Controller
      * @param  \App\Models\FileUpload  $fileUpload
      * @return \Illuminate\Http\Response
      */
-    public function destroy(FileUpload $fileUpload)
+    public function destroy(FileUpload $files)
     {
         //
-        $fileUpload->delete();
+        $files->delete();
 
         return redirect(route('file.index'));
     }
 
 
-    public function download($fileUpload)
+    public function download($files)
     {
-        $path = storage_path('app/storage/app/public' . $fileUpload);
+        $path = storage_path('app/storage/app/public' . $files);
 
         if (!file_exists($path)) {
             abort(404);
