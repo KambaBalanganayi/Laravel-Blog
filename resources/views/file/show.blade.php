@@ -5,9 +5,9 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-12 pt-2">
-            <a href="{{ route('file.index') }}" class="btn btn-outline-primary btn-sm">Go Back</a>
-            <h4 class="display-one mt-2">
+        <div class="col-12 pt-2 ">
+            <a href="{{ route('file.index') }}" class="btn btn-outline-primary btn-sm mt-4">Go Back</a>
+            <h4 class="display-one mt-5">
                 <strong>Title: </strong>{{ $files->title }}
             </h4>
             <hr>
