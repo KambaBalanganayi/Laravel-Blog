@@ -17,11 +17,12 @@
     </div>
     <div class="row text-center mb-2">
         @if(Auth::check() && Auth::user()->id == $files->user_id)
-        <div class="col-4">
+        <div class="col-2 d-grid gap-2 mx-auto">
+            <a href="{{ route('download', $files->id) }}" class="ps-4 pe-4 pt-1 pb-2 mt-3 bg-success text-light fs-5 rounded-3 text-decoration-none">Download</a>
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
+            <button type="button" class="btn btn-danger fs-5" data-bs-toggle="modal" data-bs-target="#deleteModal">
             Delete
-            </button>           
+            </button>
         </div>
         @endif
     </div>

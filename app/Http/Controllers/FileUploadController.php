@@ -110,9 +110,10 @@ class FileUploadController extends Controller
     }
 
 
-    public function download($files)
+    public function download($id)
     {
-        $path = storage_path('app/storage/app/public' . $files);
+        $file = FileUpload::findOrFail($id);
+        $path = storage_path('app/' .$file->path);
 
         if (!file_exists($path)) {
             abort(404);

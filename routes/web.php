@@ -47,7 +47,7 @@ Route::get('file', [FileUploadController::class, 'index'])->name('file.index')->
 Route::get('file/{files}', [FileUploadController::class, 'show'])->name('file.show')->middleware('auth');
 Route::get('file-create', [FileUploadController::class, 'create'])->name('file.create')->middleware('auth');
 Route::post('file-create', [FileUploadController::class, 'store'])->name('file.store')->middleware('auth');
-Route::get('download/{files}', [FileUploadController::class, 'download'])->name('download')->middleware('auth');
+Route::get('download/{id}', [FileUploadController::class, 'download'])->name('download')->middleware('auth');
 Route::delete('file-edit/{files}', [FileUploadController::class, 'destroy'])->name('delete')->middleware('auth');
 
 
