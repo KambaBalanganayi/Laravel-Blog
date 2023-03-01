@@ -4,7 +4,7 @@ use App\Http\Controllers\BlogPostController;
 use App\Http\Controllers\EtudiantController;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\FileUploadController;
-use App\Models\FileUpload;
+use App\Http\Controllers\LocalizationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -69,3 +69,6 @@ Route::get('forgot-password', [CustomAuthController::class, 'forgotPassword'])->
 Route::post('forgot-password', [CustomAuthController::class, 'tempPassword'])->name('temp.pass');
 Route::get('new-password/{user}/{tempPassword}', [CustomAuthController::class, 'newPassword'])->name('new.pass');
 Route::post('new-password/{user}/{tempPassword}', [CustomAuthController::class, 'storeNewPassword'])->name('store.pass');
+
+//*************************Routes for the Languague Functions*************************\\
+Route::get('/lang/{locale}', [LocalizationController::class, 'index'])->name('lang');

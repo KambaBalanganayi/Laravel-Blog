@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-12 text-center mt-2">
             <h1 class="display-one ">
-                Add a post
+                @lang('lang.add_post')
             </h1>
         </div>
     </div>
@@ -20,17 +20,17 @@
                     </div>
                     <div class="card-body">
                         <div class="control-group col-12">
-                            <label for="title">Title of the post</label>
+                            <label for="title">@lang('lang.title_forum_placeholder')</label>
                             <input type="text" id="title" name="title" class="form-control">
                         </div>
                         <div class="control-group col-12">
-                            <label for="body">Message</label>
+                            <label for="body">@lang('lang.forum_article')</label>
                             <textarea name="body" id="body" class="form-control"></textarea>
                         </div>
                         <div class="control-group col-12">
-                            <label for="category">Category</label>
+                            <label for="category">@lang('lang.category')</label>
                             <select name="categorys_id" id="category" class="form-control">
-                                <option value="">Select category</option>
+                                <option value="">@lang('lang.category_choice')</option>
                                 @foreach($categories as $category)
                                     <option value="{{ $category->id }}">{{ $category->category }}</option>
                                 @endforeach
@@ -38,7 +38,7 @@
                         </div>
                     </div>
                     <div class="card-footer">
-                        <input type="submit" value="Save" class="btn btn-success">
+                        <input type="submit" value="@lang('lang.submit')" class="btn btn-success">
                     </div>
                 </form>
             </div>

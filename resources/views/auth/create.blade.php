@@ -6,10 +6,10 @@
                 <h1 class="text-center"></h1>
                 <div class=" d-flex justify-content-center">
                     <div class="text-center px-5 w-50">
-                        <h1 class="text-center mb-3">Create an Account</h1>
+                        <h1 class="text-center mb-3">@lang('lang.register_user')</h1>
                         <div class="card mb-5">
                             <h3 class="card-header text-center">
-                            Sign Up!
+                            @lang('lang.create_greeting')
                             </h3>
                             <div class="card-body">
                             @if(session('success'))
@@ -33,7 +33,7 @@
                             
                             <!-- Input for Name -->
                             <div class="form-group mb-3">
-                                <label for="exampleInputEmail1">Name</label>
+                                <label for="exampleInputEmail1">@lang('lang.name')</label>
                                 <input type="text" placeholder="Name" class="form-control" name="name" value="{{ old('name')}}">
                                 @if($errors->has('name'))
                                     <div class="text-danger mt-2">
@@ -44,7 +44,7 @@
 
                             <!-- Input for Address -->
                             <div class="form-group mb-3">
-                                <label for="exampleInputEmail1">Adress</label>
+                                <label for="exampleInputEmail1">@lang('lang.adress')</label>
                                 <input type="text" placeholder="Address" class="form-control" name="adresse" value="{{ old('adresse')}}">
                                 @if($errors->has('adresse'))
                                     <div class="text-danger mt-2">
@@ -55,7 +55,7 @@
 
                             <!-- Input for Phone -->
                             <div class="form-group mb-3">
-                                <label for="exampleInputEmail1">Phone</label>
+                                <label for="exampleInputEmail1">@lang('lang.phone')</label>
                                 <input type="text" placeholder="Phone Number" class="form-control" name="phone" value="{{ old('phone')}}">
                                 @if($errors->has('phone'))
                                     <div class="text-danger mt-2">
@@ -66,7 +66,7 @@
 
                             <!-- Input for Date of Birth -->
                             <div class="form-group mb-3">
-                                <label for="exampleInputEmail1">Date Of Birth</label>
+                                <label for="exampleInputEmail1">@lang('lang.birthday')</label>
                                 <input type="text" placeholder="Date of Birth" class="form-control" name="dateNaissance" value="{{ old('dateNaissance')}}">
                                 @if($errors->has('dateNaissance'))
                                     <div class="text-danger mt-2">
@@ -77,7 +77,7 @@
 
                             <!-- Input for City -->
                             <div class="form-group mb-3">
-                                <label for="id_ville">City</label>
+                                <label for="id_ville">@lang('lang.city')</label>
                                 <br>
                                     <select name="id_ville" id="id_ville" class="w-100">
                                         @foreach($villes as $ville)
@@ -93,7 +93,7 @@
 
                             <!-- Input for Email Address -->
                             <div class="form-group mb-3">
-                                <label for="exampleInputEmail1">Email address</label>
+                                <label for="exampleInputEmail1">@lang('lang.email')</label>
                                 <input type="email" placeholder="Email" class="form-control" name="email" value="{{ old('email')}}">
                                 @if($errors->has('email'))
                                     <div class="text-danger mt-2">
@@ -105,7 +105,7 @@
 
                             <!-- Input for Password -->
                             <div class="form-group">
-                                <label for="exampleInputPassword1">Password</label>
+                                <label for="exampleInputPassword1">@lang('lang.password')</label>
                                 <input type="password" placeholder="Password" class="form-control" name="password">
                                 @if($errors->has('password'))
                                     <div class="text-danger mt-2">
@@ -114,9 +114,9 @@
                                 @endif
                             </div>
 
-                            <button type="submit" class="btn btn-primary mt-4 mb-4">Submit</button>
+                            <button type="submit" class="btn btn-primary mt-4 mb-4">@lang('lang.submit')</button>
                         </form>
-                        <a href="{{route('forgot.pass')}}">Mot de passe oublié</a>
+                        <a href="{{route('forgot.pass')}}">@lang('lang.forgot_password')</a>
                     </div>
                 </div>
 
