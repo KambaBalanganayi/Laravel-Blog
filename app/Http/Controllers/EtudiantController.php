@@ -40,6 +40,15 @@ class EtudiantController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nom' => 'required|min:2',
+            'adresse' => 'required|min:10',
+            'phone' => 'required|min:10|max:20',
+            'email' => 'required|email|unique:users',
+            'dateNaissance' => 'required|date_format:j-n-Y|after:1900-01-01',
+            'id_ville' => 'required|integer|exists:cities,id',
+        ]);
+
         $newEtudiant = Etudiant::create([
             'nom'=>$request->nom,
             'adresse'=>$request->adresse,
@@ -84,6 +93,16 @@ class EtudiantController extends Controller
      */
     public function update(Request $request, Etudiant $etudiant)
     {
+
+        $request->validate([
+            'nom' => 'required|min:2',
+            'adresse' => 'required|min:10',
+            'phone' => 'required|min:10|max:20',
+            'email' => 'required|email|unique:users',
+            'dateNaissance' => 'required|date_format:j-n-Y|after:1900-01-01',
+            'id_ville' => 'required|integer|exists:cities,id',
+        ]);
+        
         $etudiant->update([
             'nom'=>$request->nom,
             'adresse'=>$request->adresse,

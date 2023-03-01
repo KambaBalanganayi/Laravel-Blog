@@ -44,6 +44,12 @@ class BlogPostController extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->validate([
+            'title' => 'required|min:5',
+            'body' => 'required|min:5',
+            'categorys_id' => 'required|integer|exists:categorys,id',
+        ]);
         //
         $newPost = BlogPost::create([
             'title' => $request->title,
@@ -92,6 +98,13 @@ class BlogPostController extends Controller
     public function update(Request $request, BlogPost $blogPost)
     {
         //
+
+        $request->validate([
+            'title' => 'required|min:5',
+            'body' => 'required|min:5',
+            'categorys_id' => 'required|integer|exists:categorys,id',
+        ]);
+        
         $blogPost->update([
             'title' => $request->title,
             'body' => $request->body,

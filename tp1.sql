@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 28, 2023 at 06:52 AM
+-- Generation Time: Mar 02, 2023 at 12:18 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -54,14 +54,14 @@ INSERT INTO `blog_posts` (`id`, `title`, `body`, `user_id`, `categorys_id`, `cre
 CREATE TABLE `categorys` (
   `id` int(11) NOT NULL,
   `category` varchar(45) DEFAULT NULL,
-  `categorys_fr` varchar(45) DEFAULT NULL
+  `category_fr` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `categorys`
 --
 
-INSERT INTO `categorys` (`id`, `category`, `categorys_fr`) VALUES
+INSERT INTO `categorys` (`id`, `category`, `category_fr`) VALUES
 (1, 'Business', 'Affaires'),
 (2, 'Computers', 'Informatique');
 
