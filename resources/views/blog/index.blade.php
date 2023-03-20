@@ -22,7 +22,7 @@
                 </div>
                 <hr>
             </div>
-            <div class="row mb-5">
+            <div class="row blog-posts" >
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
@@ -37,6 +37,7 @@
                                         @empty
                                         <li class="text-danger">No blog articles available</li>
                                 @endforelse
+                                {{$blogs}}
                             </ul>
                         </div>
                     </div>

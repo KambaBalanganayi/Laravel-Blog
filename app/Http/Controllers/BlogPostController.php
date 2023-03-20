@@ -19,7 +19,7 @@ class BlogPostController extends Controller
     {
         //
         $blogs = BlogPost::select()
-                ->paginate(15);
+                ->paginate(10);
         return view('blog.index', ['blogs'=>$blogs]);
     }
 

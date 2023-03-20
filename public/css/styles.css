@@ -11286,3 +11286,54 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+
+
+/* MY STYLES */
+
+.retro-gaming-logo {
+	width: 25%;
+
+}
+
+.hero-logo{
+  padding-top: .5rem;
+  padding-bottom: .25rem;
+  padding-left: .65rem;
+
+}
+
+.top-nav-bar{
+  background-color: #04414d;
+}
+
+.middle-nav-bar{
+  background-color: #055160;
+}
+
+.hero-section-container{
+  background-color: #334646;
+}
+
+.home-welcome-container{
+  padding-bottom: 10rem;
+  background-color: #055160;
+}
+
+.home-welcome-card{
+  background-color: #04414d;
+  color: white;
+}
+
+.pixel-footer{
+  background-color: #04414d;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.action-btns{
+  margin-right: 0px;
+}
+.blog-posts{
+  margin-bottom: 10rem;
+}

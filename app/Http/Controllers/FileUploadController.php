@@ -45,14 +45,16 @@ class FileUploadController extends Controller
         //
         $request->validate([
             'title' => 'required|min:6',
-            'file' => 'required|mimes:pdf,zip,docx|max:3200'
+            'file' => 'required|mimes:pdf,zip,docx,jpeg,jpg,gif,png|max:3200'
         ]);
 
-        $path = $request->file('file')->store('public');
+        $path = $request->file('file')->store('local');
+        $name = $request->file('file')->getClientOriginalName();
 
         $fileUpload = FileUpload::create([
             'title'=>$request->title,
             'path'=>$path,
+            'name' =>$name,
             'user_id'=> Auth::user()->id
         ]);
 
@@ -120,6 +122,14 @@ class FileUploadController extends Controller
         }
 
         return response()->download($path);
+    }
+
+    public function preview($id)
+    {
+    $file = FileUpload::findOrFail($id);
+    $path = storage_path($file->path);
+
+    return response()->file($path);
     }
 
 }

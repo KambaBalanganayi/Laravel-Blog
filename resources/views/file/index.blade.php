@@ -31,11 +31,16 @@
                         <div class="card-body">
                             <ul>
                                 @forelse($files as $file)
-                                        <li><a href="{{ route('file.show', $file->id)}}">{{ $file->title }}</a> 
+                                        <li>
+                                        <img src="{{ route('file.preview', $file->id) }}" alt="{{ $file->title }}">
+
+                                        <br>
+                                        <a href="{{ route('file.show', $file->id)}}">{{ $file->title }}</a> 
                                         <br></li>
                                         <br>
                                         @empty
                                         <li class="text-danger">No files available</li>
+                                        
                                 @endforelse
                             </ul>
                         </div>
@@ -46,3 +51,4 @@
     </div>
 
 @endsection
+
